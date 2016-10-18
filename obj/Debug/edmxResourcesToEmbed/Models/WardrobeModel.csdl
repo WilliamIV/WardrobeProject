@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WardrobeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BottomsTable">
+    <Key>
+      <PropertyRef Name="BottomsID" />
+    </Key>
+    <Property Name="BottomsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameBottom" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Color" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Season" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Occasion" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ClosetTables" Relationship="Self.FK_ClosetTable_BottomsTable" FromRole="BottomsTable" ToRole="ClosetTable" />
+  </EntityType>
+  <EntityType Name="ClosetTable">
+    <Key>
+      <PropertyRef Name="ClosetID" />
+    </Key>
+    <Property Name="ClosetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TopsID" Type="Int32" Nullable="false" />
+    <Property Name="BottomsID" Type="Int32" Nullable="false" />
+    <Property Name="ShoesID" Type="Int32" Nullable="false" />
+    <Property Name="HatsID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="BottomsTable" Relationship="Self.FK_ClosetTable_BottomsTable" FromRole="ClosetTable" ToRole="BottomsTable" />
+    <NavigationProperty Name="HatsTable" Relationship="Self.FK_ClosetTable_HatsTable" FromRole="ClosetTable" ToRole="HatsTable" />
+    <NavigationProperty Name="ShoesTable" Relationship="Self.FK_ClosetTable_ShoesTable" FromRole="ClosetTable" ToRole="ShoesTable" />
+    <NavigationProperty Name="TopsTable" Relationship="Self.FK_ClosetTable_TopsTable" FromRole="ClosetTable" ToRole="TopsTable" />
+  </EntityType>
+  <EntityType Name="HatsTable">
+    <Key>
+      <PropertyRef Name="HatsID" />
+    </Key>
+    <Property Name="HatsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameHats" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Color" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Season" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Occasion" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ClosetTables" Relationship="Self.FK_ClosetTable_HatsTable" FromRole="HatsTable" ToRole="ClosetTable" />
+  </EntityType>
+  <EntityType Name="ShoesTable">
+    <Key>
+      <PropertyRef Name="ShoesID" />
+    </Key>
+    <Property Name="ShoesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameShoes" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Color" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Season" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Occasion" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ClosetTables" Relationship="Self.FK_ClosetTable_ShoesTable" FromRole="ShoesTable" ToRole="ClosetTable" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TopsTable">
+    <Key>
+      <PropertyRef Name="TopsID" />
+    </Key>
+    <Property Name="TopsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameTop" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Color" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Season" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Occasion" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ClosetTables" Relationship="Self.FK_ClosetTable_TopsTable" FromRole="TopsTable" ToRole="ClosetTable" />
+  </EntityType>
+  <Association Name="FK_ClosetTable_BottomsTable">
+    <End Role="BottomsTable" Type="Self.BottomsTable" Multiplicity="1" />
+    <End Role="ClosetTable" Type="Self.ClosetTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BottomsTable">
+        <PropertyRef Name="BottomsID" />
+      </Principal>
+      <Dependent Role="ClosetTable">
+        <PropertyRef Name="BottomsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClosetTable_HatsTable">
+    <End Role="HatsTable" Type="Self.HatsTable" Multiplicity="1" />
+    <End Role="ClosetTable" Type="Self.ClosetTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HatsTable">
+        <PropertyRef Name="HatsID" />
+      </Principal>
+      <Dependent Role="ClosetTable">
+        <PropertyRef Name="HatsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClosetTable_ShoesTable">
+    <End Role="ShoesTable" Type="Self.ShoesTable" Multiplicity="1" />
+    <End Role="ClosetTable" Type="Self.ClosetTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShoesTable">
+        <PropertyRef Name="ShoesID" />
+      </Principal>
+      <Dependent Role="ClosetTable">
+        <PropertyRef Name="ShoesID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClosetTable_TopsTable">
+    <End Role="TopsTable" Type="Self.TopsTable" Multiplicity="1" />
+    <End Role="ClosetTable" Type="Self.ClosetTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TopsTable">
+        <PropertyRef Name="TopsID" />
+      </Principal>
+      <Dependent Role="ClosetTable">
+        <PropertyRef Name="TopsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WardrobeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BottomsTables" EntityType="Self.BottomsTable" />
+    <EntitySet Name="ClosetTables" EntityType="Self.ClosetTable" />
+    <EntitySet Name="HatsTables" EntityType="Self.HatsTable" />
+    <EntitySet Name="ShoesTables" EntityType="Self.ShoesTable" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="TopsTables" EntityType="Self.TopsTable" />
+    <AssociationSet Name="FK_ClosetTable_BottomsTable" Association="Self.FK_ClosetTable_BottomsTable">
+      <End Role="BottomsTable" EntitySet="BottomsTables" />
+      <End Role="ClosetTable" EntitySet="ClosetTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClosetTable_HatsTable" Association="Self.FK_ClosetTable_HatsTable">
+      <End Role="HatsTable" EntitySet="HatsTables" />
+      <End Role="ClosetTable" EntitySet="ClosetTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClosetTable_ShoesTable" Association="Self.FK_ClosetTable_ShoesTable">
+      <End Role="ShoesTable" EntitySet="ShoesTables" />
+      <End Role="ClosetTable" EntitySet="ClosetTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClosetTable_TopsTable" Association="Self.FK_ClosetTable_TopsTable">
+      <End Role="TopsTable" EntitySet="TopsTables" />
+      <End Role="ClosetTable" EntitySet="ClosetTables" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

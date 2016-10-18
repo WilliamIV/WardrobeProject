@@ -1,0 +1,56 @@
+﻿@model WardrobeApplication.Models.ClosetTable
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ClosetTable</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BottomsTable.NameBottom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BottomsTable.NameBottom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HatsTable.NameHats)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HatsTable.NameHats)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShoesTable.NameShoes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShoesTable.NameShoes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TopsTable.NameTop)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopsTable.NameTop)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

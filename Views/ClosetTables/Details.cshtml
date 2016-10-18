@@ -1,0 +1,50 @@
+﻿@model WardrobeApplication.Models.ClosetTable
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ClosetTable</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BottomsTable.NameBottom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BottomsTable.NameBottom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HatsTable.NameHats)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HatsTable.NameHats)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShoesTable.NameShoes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShoesTable.NameShoes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TopsTable.NameTop)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopsTable.NameTop)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ClosetID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

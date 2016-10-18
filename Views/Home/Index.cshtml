@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Will's Closet";
+}
+
+<div class="jumbotron">
+    <h1>Welcome to Williams Closet</h1>
+    <div class="col-md-12">
+        <h2>@Html.ActionLink("Closet", "Index", "ClosetTables")</h2>
+        <p>
+            Closet items.
+        </p>
+        
+    </div>
+</div>
+<body id="CoverPage">
+
+
+<div class="row" id="FrontLinks">
+    
+    <div class="col-md-3">
+        <h2>@Html.ActionLink("Tops", "Index", "TopsTables")</h2>
+        <p>Tops Index</p>
+        
+    </div>
+    <div class="col-md-3">
+        <h2>@Html.ActionLink("Bottoms", "Index", "BottomsTables")</h2>
+        <p>Bottoms Index</p>
+        
+    </div>
+    <div class="col-md-3">
+        <h2>@Html.ActionLink("Shoes","Index", "ShoesTables")</h2>
+        <p>Shoes Index.</p>
+        
+    </div>
+    <div class="col-md-3">
+        <h2>@Html.ActionLink("Hats", "Index", "HatsTables")</h2>
+        <p>Hats Index</p>
+        
+    </div>
+</div>
+</body>

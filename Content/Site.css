@@ -1,0 +1,79 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-image: url('../Photos/Closet5.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Chewy', cursive;
+    font-weight:600;
+    font-size: 20px;
+}
+container body-content{
+    font-size: 12px;
+}
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    font-family: 'Chewy', cursive;
+    font-weight:600;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+    font-family: 'Chewy', cursive;
+    font-weight:600;
+    font-size: 25px;
+}
+#Pics{
+
+    height: 100px;
+}
+
+
+
+
+#FrontLinks {
+    padding-top: 330px;
+    color: darkred;
+}
+
+h2{
+    font-family: 'Chewy', cursive;
+    font-size: 30px;
+    color: darkred;
+}
+h1{
+    font-family: 'Chewy', cursive;
+    font-size: 50px;
+    color: darkred;
+}
+.jumbotron {
+    background-color: transparent;
+
+    text-align: center;
+    color: darkred;
+    font-family: 'Chewy', cursive;
+    background:
+}
+p {
+    font-size:16px;
+}
+
+#CoverPage {
+    background-image: url('../Photos/Closet5.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Chewy', cursive;
+    font-size: 30px;
+}

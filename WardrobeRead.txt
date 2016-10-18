@@ -1,0 +1,8 @@
+Wardrobe Project
+
+In this project, you will be able to view all your clothing items, organized by type.  
+You can also see full Outfits that I put together.
+
+In addition, you can add or create outfits.
+
+I incorporated dropdown bars on all pages, and an edited jumbotron.

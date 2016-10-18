@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WardrobeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BottomsTable">
+    <Key>
+      <PropertyRef Name="BottomsID" />
+    </Key>
+    <Property Name="BottomsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameBottom" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Color" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Season" Type="nvarchar" MaxLength="150" />
+    <Property Name="Occasion" Type="nvarchar" MaxLength="150" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="ClosetTable">
+    <Key>
+      <PropertyRef Name="ClosetID" />
+    </Key>
+    <Property Name="ClosetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TopsID" Type="int" Nullable="false" />
+    <Property Name="BottomsID" Type="int" Nullable="false" />
+    <Property Name="ShoesID" Type="int" Nullable="false" />
+    <Property Name="HatsID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HatsTable">
+    <Key>
+      <PropertyRef Name="HatsID" />
+    </Key>
+    <Property Name="HatsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameHats" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Color" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Season" Type="nvarchar" MaxLength="150" />
+    <Property Name="Occasion" Type="nvarchar" MaxLength="150" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="ShoesTable">
+    <Key>
+      <PropertyRef Name="ShoesID" />
+    </Key>
+    <Property Name="ShoesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameShoes" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Color" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Season" Type="nvarchar" MaxLength="150" />
+    <Property Name="Occasion" Type="nvarchar" MaxLength="150" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TopsTable">
+    <Key>
+      <PropertyRef Name="TopsID" />
+    </Key>
+    <Property Name="TopsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameTop" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Color" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Season" Type="nvarchar" MaxLength="150" />
+    <Property Name="Occasion" Type="nvarchar" MaxLength="150" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <Association Name="FK_ClosetTable_BottomsTable">
+    <End Role="BottomsTable" Type="Self.BottomsTable" Multiplicity="1" />
+    <End Role="ClosetTable" Type="Self.ClosetTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BottomsTable">
+        <PropertyRef Name="BottomsID" />
+      </Principal>
+      <Dependent Role="ClosetTable">
+        <PropertyRef Name="BottomsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClosetTable_HatsTable">
+    <End Role="HatsTable" Type="Self.HatsTable" Multiplicity="1" />
+    <End Role="ClosetTable" Type="Self.ClosetTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HatsTable">
+        <PropertyRef Name="HatsID" />
+      </Principal>
+      <Dependent Role="ClosetTable">
+        <PropertyRef Name="HatsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClosetTable_ShoesTable">
+    <End Role="ShoesTable" Type="Self.ShoesTable" Multiplicity="1" />
+    <End Role="ClosetTable" Type="Self.ClosetTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShoesTable">
+        <PropertyRef Name="ShoesID" />
+      </Principal>
+      <Dependent Role="ClosetTable">
+        <PropertyRef Name="ShoesID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClosetTable_TopsTable">
+    <End Role="TopsTable" Type="Self.TopsTable" Multiplicity="1" />
+    <End Role="ClosetTable" Type="Self.ClosetTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TopsTable">
+        <PropertyRef Name="TopsID" />
+      </Principal>
+      <Dependent Role="ClosetTable">
+        <PropertyRef Name="TopsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WardrobeModelStoreContainer">
+    <EntitySet Name="BottomsTable" EntityType="Self.BottomsTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClosetTable" EntityType="Self.ClosetTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HatsTable" EntityType="Self.HatsTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShoesTable" EntityType="Self.ShoesTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TopsTable" EntityType="Self.TopsTable" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ClosetTable_BottomsTable" Association="Self.FK_ClosetTable_BottomsTable">
+      <End Role="BottomsTable" EntitySet="BottomsTable" />
+      <End Role="ClosetTable" EntitySet="ClosetTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClosetTable_HatsTable" Association="Self.FK_ClosetTable_HatsTable">
+      <End Role="HatsTable" EntitySet="HatsTable" />
+      <End Role="ClosetTable" EntitySet="ClosetTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClosetTable_ShoesTable" Association="Self.FK_ClosetTable_ShoesTable">
+      <End Role="ShoesTable" EntitySet="ShoesTable" />
+      <End Role="ClosetTable" EntitySet="ClosetTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClosetTable_TopsTable" Association="Self.FK_ClosetTable_TopsTable">
+      <End Role="TopsTable" EntitySet="TopsTable" />
+      <End Role="ClosetTable" EntitySet="ClosetTable" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
